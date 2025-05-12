@@ -13,7 +13,8 @@
         <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">تابعنا على إنستجرام</a>
     </header>
     <main>
-        <p>مرحبًا بكم في موقع MY Elegant Scent. دلوقتي تقدر تشوف بعض من العطور اللي عندنا:</p>
+        <p>مرحبًا بكم في موقع MY Elegant Scent. 
+            دلوقتي تقدر تشوف بعض من العطور اللي عندنا:</p>
         
         <div class="products">
             <div class="product-card">
@@ -35,7 +36,7 @@
             <div class="product-card">
                 <img src="Perfume3.jpg" alt="الخاين">
                 <h3 class="product-name">الخاين</h3>
-                <p>سعره: كيس شيبسي ب عشره جنيه</p>
+                <p>سعره: كيس شيبسي بعشره جنيه</p>
                 <a class="whatsapp-link" href="#" target="_blank">
                     <button>اطلب الآن</button>
                 </a>
@@ -53,7 +54,7 @@
 
         productCards.forEach(card => {
             const name = card.querySelector('.product-name').innerText.trim();
-            const msg = encodeURIComponent(`عايز أطلب  ${name}`);
+            const msg = encodeURIComponent(`كنت عايز استفسر عن ${name}`);
             const link = `https://wa.me/${whatsappNumber}?text=${msg}`;
             const btn = card.querySelector('.whatsapp-link');
             btn.href = link;
