@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -19,28 +18,46 @@
         <div class="products">
             <div class="product-card">
                 <img src="Perfume1.jpg" alt="Versace Eros">
-                <h3>Versace Eros</h3>
+                <h3 class="product-name">Versace Eros</h3>
                 <p>سعره: 300 جنيه</p>
-                <a class="order-button" href="https://www.instagram.com/my_elegant_scents" target="_blank">اطلب الآن</a>
+                <a class="whatsapp-link" href="#" target="_blank">
+                    <button>اطلب الآن</button>
+                </a>
             </div>
-      <div class="product-card">
-    <img src="Perfume2.jpg" alt="Spice Bomb">
-    <h3>Spice Bomb</h3>
-    <p>سعره: 300 جنيه</p>
-    <a class="order-button" href="https://www.instagram.com/my_elegant_scents" target="_blank">اطلب الآن</a>
-      </div>
-       <div class="product-card">
-    <img src="Perfume3.jpg" alt="الخاين">
-    <h3> الخاين </h3>
-    <p>سعره: كيس شيبسي ب عشره جنيه</p>
-    <a href="https://wa.me/201212071567?text=عايز%20أطلب%20المنتج%20X" target="_blank">
-  <button>اطلب الآن</button>
-    </a>
-       </div>
+            <div class="product-card">
+                <img src="Perfume2.jpg" alt="Spice Bomb">
+                <h3 class="product-name">Spice Bomb</h3>
+                <p>سعره: 300 جنيه</p>
+                <a class="whatsapp-link" href="#" target="_blank">
+                    <button>اطلب الآن</button>
+                </a>
+            </div>
+            <div class="product-card">
+                <img src="Perfume3.jpg" alt="الخاين">
+                <h3 class="product-name">الخاين</h3>
+                <p>سعره: كيس شيبسي ب عشره جنيه</p>
+                <a class="whatsapp-link" href="#" target="_blank">
+                    <button>اطلب الآن</button>
+                </a>
+            </div>
         </div>
     </main>
+
     <footer>
         <p>&copy; 2025 MY Elegant Scent</p>
     </footer>
+
+    <script>
+        const whatsappNumber = "201212071567"; // رقمك بدون 0 أو +
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const name = card.querySelector('.product-name').innerText.trim();
+            const msg = encodeURIComponent(`عايز أطلب  ${name}`);
+            const link = `https://wa.me/${whatsappNumber}?text=${msg}`;
+            const btn = card.querySelector('.whatsapp-link');
+            btn.href = link;
+        });
+    </script>
 </body>
 </html>
