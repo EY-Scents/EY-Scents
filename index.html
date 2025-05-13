@@ -1,127 +1,106 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MY Elegant Scents</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial; direction: rtl; padding: 20px; background-color: #f4f4f4; }
-    .product-card { border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; }
-    .product-card img { width: 150px; height: 150px; object-fit: cover; }
-    .product-card button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
-    .product-card button:hover { background-color: #218838; }
-    #cart-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); padding: 20px; }
-    #cart-content { background-color: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: 0 auto; overflow-y: auto; }
-    #cart-content h2 { text-align: center; }
-    #cart-popup ul { list-style: none; padding: 0; }
-    #cart-popup ul li { margin-bottom: 10px; }
-    #cart-popup button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
-    #cart-popup button:hover { background-color: #0056b3; }
+    /* Basic Design */
+    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background: #f4f4f4; }
+    label, input, button { display: block; margin: 10px 0; }
+    .products { display: flex; flex-wrap: wrap; gap: 20px; }
+    .product-card { width: 200px; background-color: #fff; padding: 10px; text-align: center; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    .product-card img { width: 100%; height: auto; border-radius: 8px; }
+    .product-card button { background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+    .product-card button:hover { background-color: #45a049; }
   </style>
 </head>
 <body>
+
   <header>
     <img src="logo.png" alt="MY Elegant Scent Logo" class="logo">
     <h1>MY Elegant Scents</h1>
     <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">Follow us on Instagram</a>
   </header>
+  
   <main>
-    <p> Welcome to My Elegant Scents </p>
-
+    <p>Welcome to My Elegant Scents</p>
     <div class="products">
       <div class="product-card">
         <img src="Perfume1.jpg" alt="Versace Eros">
         <h3 class="product-name">Versace Eros</h3>
         <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">أضف إلى السلة</button>
+        <button class="add-to-cart" onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">Add to Cart</button>
       </div>
+
       <div class="product-card">
         <img src="Perfume2.jpg" alt="Spice Bomb">
         <h3 class="product-name">Spice Bomb Extreme</h3>
         <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Spice Bomb Extreme', 300, 'Perfume2.jpg')">أضف إلى السلة</button>
+        <button class="add-to-cart" onclick="addToCart('Spice Bomb Extreme', 300, 'Perfume2.jpg')">Add to Cart</button>
       </div>
+
       <div class="product-card">
-        <img src="Labelle.jpg" alt="La Belle le Parfum">
-        <h3 class="product-name">La Belle le Parfum</h3>
+        <img src="Labelle.jpg" alt="La belle le parfum">
+        <h3 class="product-name">La belle le parfum</h3>
         <p>Price: 300 EGP</p>
-        <button onclick="addToCart('La Belle le Parfum', 300, 'Labelle.jpg')">أضف إلى السلة</button>
+        <button class="add-to-cart" onclick="addToCart('La belle le parfum', 300, 'Labelle.jpg')">Add to Cart</button>
       </div>
+
       <div class="product-card">
         <img src="Le male.jpg" alt="Le male le parfum">
         <h3 class="product-name">Le male le parfum</h3>
         <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Le male le parfum', 300, 'Le male.jpg')">أضف إلى السلة</button>
+        <button class="add-to-cart" onclick="addToCart('Le male le parfum', 300, 'Le male.jpg')">Add to Cart</button>
       </div>
+
       <div class="product-card">
         <img src="SWY.jpg" alt="Stronger With You intensely">
         <h3 class="product-name">Stronger With You intensely</h3>
         <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Stronger With You intensely', 300, 'SWY.jpg')">أضف إلى السلة</button>
+        <button class="add-to-cart" onclick="addToCart('Stronger With You intensely', 300, 'SWY.jpg')">Add to Cart</button>
       </div>
     </div>
+
+    <button onclick="goToWhatsApp()">Send to WhatsApp</button> <!-- Send button to WhatsApp -->
   </main>
 
   <footer>
     <p>&copy; 2025 MY Elegant Scent</p>
   </footer>
 
-  <!-- Snipcart Integration -->
-  <link rel="preconnect" href="https://app.snipcart.com">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="OWI0OTExM2MtNDNhOS00OTk4LWFlNjQtMDM0ZTVhNmI5MDIzNjM4ODI3NDUxMjk5NTk3NzMw"></div>
-
-  <!-- LocalStorage Cart Functionality -->
-  <div id="cart-popup">
-    <div id="cart-content">
-      <h2>سلة التسوق</h2>
-      <ul id="cart-items"></ul>
-      <button onclick="goToWhatsApp()">إرسال للواتساب</button>
-      <button onclick="closeCart()">إغلاق</button>
-    </div>
-  </div>
-
   <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = [];
 
     function addToCart(name, price, image) {
       const product = { name, price, image };
       cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert('تم إضافة المنتج إلى السلة!');
-    }
-
-    function openCart() {
-      const cartItems = document.getElementById('cart-items');
-      cartItems.innerHTML = '';
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `${item.name} - ${item.price} EGP`;
-        cartItems.appendChild(li);
-      });
-      document.getElementById('cart-popup').style.display = 'block';
-    }
-
-    function closeCart() {
-      document.getElementById('cart-popup').style.display = 'none';
+      alert(name + " has been added to your cart!");
     }
 
     function goToWhatsApp() {
-      let message = 'لقد اخترت هذه المنتجات: \n';
-      cart.forEach(item => {
-        message += `${item.name} - ${item.price} EGP\n`;
-      });
-      const whatsappLink = `https://wa.me/201212071567?text=${encodeURIComponent(message)}`;
-      window.open(whatsappLink, '_blank');
-    }
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
 
-    // Open cart button (you can customize this)
-    const cartButton = document.createElement('button');
-    cartButton.innerHTML = 'عرض السلة';
-    cartButton.onclick = openCart;
-    document.body.appendChild(cartButton);
+      let cartDetails = "Products in your cart:\n";
+      cart.forEach(product => {
+        cartDetails += `${product.name} - ${product.price} EGP\n`;
+      });
+
+      // Create WhatsApp message link
+      const whatsappLink = `https://wa.me/1234567890?text=${encodeURIComponent(cartDetails)}`;
+
+      // Clear cart after sending message
+      cart = [];
+
+      // Open WhatsApp link in a new tab
+      window.open(whatsappLink, "_blank");
+      
+      alert("Your cart has been sent, and the cart has been cleared.");
+    }
   </script>
 
 </body>
