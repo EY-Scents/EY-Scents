@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MY Elegant Scents</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background-color: #f9f9f9; }
+    body { font-family: Arial; direction: rtl; padding: 20px; background-color: #f4f4f4; }
     .product-card { border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; }
     .product-card img { width: 150px; height: 150px; object-fit: cover; }
     .product-card button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
@@ -20,30 +21,59 @@
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="MY Elegant Scent Logo" class="logo">
+    <h1>MY Elegant Scents</h1>
+    <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">Follow us on Instagram</a>
+  </header>
+  <main>
+    <p> Welcome to My Elegant Scents </p>
 
-  <h1>MY Elegant Scents</h1>
-  
-  <div class="product-card">
-    <img src="Perfume1.jpg" alt="Versace Eros">
-    <h3>Versace Eros</h3>
-    <p>Price: 300 EGP</p>
-    <button onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">أضف إلى السلة</button>
-  </div>
-  
-  <div class="product-card">
-    <img src="Perfume2.jpg" alt="Spice Bomb">
-    <h3>Spice Bomb Extreme</h3>
-    <p>Price: 300 EGP</p>
-    <button onclick="addToCart('Spice Bomb Extreme', 300, 'Perfume2.jpg')">أضف إلى السلة</button>
-  </div>
+    <div class="products">
+      <div class="product-card">
+        <img src="Perfume1.jpg" alt="Versace Eros">
+        <h3 class="product-name">Versace Eros</h3>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">أضف إلى السلة</button>
+      </div>
+      <div class="product-card">
+        <img src="Perfume2.jpg" alt="Spice Bomb">
+        <h3 class="product-name">Spice Bomb Extreme</h3>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('Spice Bomb Extreme', 300, 'Perfume2.jpg')">أضف إلى السلة</button>
+      </div>
+      <div class="product-card">
+        <img src="Labelle.jpg" alt="La Belle le Parfum">
+        <h3 class="product-name">La Belle le Parfum</h3>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('La Belle le Parfum', 300, 'Labelle.jpg')">أضف إلى السلة</button>
+      </div>
+      <div class="product-card">
+        <img src="Le male.jpg" alt="Le male le parfum">
+        <h3 class="product-name">Le male le parfum</h3>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('Le male le parfum', 300, 'Le male.jpg')">أضف إلى السلة</button>
+      </div>
+      <div class="product-card">
+        <img src="SWY.jpg" alt="Stronger With You intensely">
+        <h3 class="product-name">Stronger With You intensely</h3>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('Stronger With You intensely', 300, 'SWY.jpg')">أضف إلى السلة</button>
+      </div>
+    </div>
+  </main>
 
-  <div class="product-card">
-    <img src="Labelle.jpg" alt="La Belle le Parfum">
-    <h3>La Belle le Parfum</h3>
-    <p>Price: 300 EGP</p>
-    <button onclick="addToCart('La Belle le Parfum', 300, 'Labelle.jpg')">أضف إلى السلة</button>
-  </div>
+  <footer>
+    <p>&copy; 2025 MY Elegant Scent</p>
+  </footer>
 
+  <!-- Snipcart Integration -->
+  <link rel="preconnect" href="https://app.snipcart.com">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="OWI0OTExM2MtNDNhOS00OTk4LWFlNjQtMDM0ZTVhNmI5MDIzNjM4ODI3NDUxMjk5NTk3NzMw"></div>
+
+  <!-- LocalStorage Cart Functionality -->
   <div id="cart-popup">
     <div id="cart-content">
       <h2>سلة التسوق</h2>
