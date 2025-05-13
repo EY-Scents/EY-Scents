@@ -1,108 +1,137 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MY Elegant Scents</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .cart-button {
-      background-color: #FF5722;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 20px 0;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="logo.png" alt="MY Elegant Scent Logo" class="logo">
-    <h1>MY Elegant Scents</h1>
-    <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">Follow us on Instagram</a>
-  </header>
-
-  <main>
-    <p>Welcome to My Elegant Scents</p>
-
-    <!-- زر عرض السلة -->
-    <button class="cart-button" onclick="showCart()">عرض السلة</button>
-
-    <div class="products">
-      <div class="product-card">
-        <img src="Perfume1.jpg" alt="Versace Eros">
-        <h3 class="product-name">Versace Eros</h3>
-        <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Versace Eros', 300)">أضف إلى السلة</button>
-      </div>
-      <div class="product-card">
-        <img src="Perfume2.jpg" alt="Spice Bomb">
-        <h3 class="product-name">Spice Bomb Extreme</h3>
-        <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Spice Bomb Extreme', 300)">أضف إلى السلة</button>
-      </div>
-      <div class="product-card">
-        <img src="Labelle.jpg" alt="La belle le parfum">
-        <h3 class="product-name">La belle le parfum</h3>
-        <p>Price: 300 EGP</p>
-        <button onclick="addToCart('La belle le parfum', 300)">أضف إلى السلة</button>
-      </div>
-      <div class="product-card">
-        <img src="Le male.jpg" alt="Le male le parfum">
-        <h3 class="product-name">Le male le parfum</h3>
-        <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Le male le parfum', 300)">أضف إلى السلة</button>
-      </div>
-      <div class="product-card">
-        <img src="SWY.jpg" alt="Stronger With You intensely">
-        <h3 class="product-name">Stronger With You intensely</h3>
-        <p>Price: 300 EGP</p>
-        <button onclick="addToCart('Stronger With You intensely', 300)">أضف إلى السلة</button>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 MY Elegant Scent</p>
-  </footer>
-
-  <script>
-    let cart = [];
-
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      alert(name + " تم إضافته إلى السلة!");
-    }
-
-    function showCart() {
-      if (cart.length === 0) {
-        alert("السلة فارغة!");
-        return;
+<html lang="ar">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>MY Elegant Scents</title>  
+    <link rel="stylesheet" href="style.css">  
+    <style>
+      .cart-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #FF5722;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1000;
       }
 
-      let cartDetails = "تفاصيل الطلب:\n\n";
-      cart.forEach((item, index) => {
-        cartDetails += `${index + 1}. ${item.name} - ${item.price} EGP\n`;
-      });
+      .product-card button {
+        background-color: #4CAF50; /* Green */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+      }
 
-      const whatsappNumber = "01212071567";
-      const whatsappLink = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(cartDetails)}`;
-      window.open(whatsappLink, '_blank');
+      .product-card button:hover {
+        background-color: #45a049;
+      }
+    </style>
+</head>  
+<body>  
 
-      cart = [];
-    }
+    <header>  
+        <img src="logo.png" alt="MY Elegant Scent Logo" class="logo">  
+        <h1>MY Elegant Scents</h1>  
+        <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">Follow us on Instagram</a>  
+    </header>  
 
-    window.onbeforeunload = () => {
-      if (cart.length > 0) {
-        const confirmed = confirm("هل تريد إرسال الطلب عبر واتساب قبل مغادرة الصفحة؟");
-        if (confirmed) {
-          showCart();
+    <main>  
+        <p> Welcome to My Elegant Scents </p>  
+        <div class="products">  
+            <div class="product-card">  
+                <img src="Perfume1.jpg" alt="Versace Eros">  
+                <h3 class="product-name">Versace Eros</h3>  
+                <p>Price: 300 EGP</p>  
+                <button   
+                  class="add-to-cart"  
+                  onclick="addToCart('Versace Eros', 300, 'Versace Eros')">  
+                  Add to Cart  
+                </button>  
+            </div>  
+            <div class="product-card">  
+                <img src="Perfume2.jpg" alt="Spice Bomb Extreme">  
+                <h3 class="product-name">Spice Bomb Extreme</h3>  
+                <p>Price: 300 EGP</p>  
+                <button   
+                  class="add-to-cart"  
+                  onclick="addToCart('Spice Bomb Extreme', 300, 'Spice Bomb Extreme')">  
+                  Add to Cart  
+                </button>  
+            </div>  
+            <div class="product-card">  
+                <img src="Labelle.jpg" alt="La Belle Le Parfum">  
+                <h3 class="product-name">La Belle Le Parfum</h3>  
+                <p>Price: 300 EGP</p>  
+                <button   
+                  class="add-to-cart"  
+                  onclick="addToCart('La Belle Le Parfum', 300, 'La Belle Le Parfum')">  
+                  Add to Cart  
+                </button>  
+            </div>  
+            <div class="product-card">  
+                <img src="Le male.jpg" alt="Le Male Le Parfum">  
+                <h3 class="product-name">Le Male Le Parfum</h3>  
+                <p>Price: 300 EGP</p>  
+                <button   
+                  class="add-to-cart"  
+                  onclick="addToCart('Le Male Le Parfum', 300, 'Le Male Le Parfum')">  
+                  Add to Cart  
+                </button>  
+            </div>  
+            <div class="product-card">  
+                <img src="SWY.jpg" alt="Stronger With You Intense">  
+                <h3 class="product-name">Stronger With You Intense</h3>  
+                <p>Price: 300 EGP</p>  
+                <button   
+                  class="add-to-cart"  
+                  onclick="addToCart('Stronger With You Intense', 300, 'Stronger With You Intense')">  
+                  Add to Cart  
+                </button>  
+            </div>  
+        </div>  
+    </main>  
+
+    <footer>  
+        <p>&copy; 2025 MY Elegant Scent</p>  
+    </footer>  
+
+    <button class="cart-button" onclick="showCart()">The Cart</button>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price, image) {
+            cart.push({ name, price, image });
+            alert(name + " added to cart!");
         }
-      }
-    };
-  </script>
-</body>
+
+        function showCart() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let cartDetails = "Order Details:\n\n";
+            cart.forEach((item, index) => {
+                cartDetails += `${index + 1}. ${item.name} - ${item.price} EGP\n`;
+            });
+
+            const whatsappNumber = "01212071567";
+            const whatsappLink = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(cartDetails)}`;
+
+            window.open(whatsappLink, '_blank');
+            cart = [];
+        }
+    </script>  
+
+</body>  
 </html>
