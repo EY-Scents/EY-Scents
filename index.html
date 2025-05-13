@@ -1,101 +1,98 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY Elegant Scents</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://app.snipcart.com">
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MY Elegant Scents</title>
+  <style>
+    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background-color: #f9f9f9; }
+    .product-card { border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; }
+    .product-card img { width: 150px; height: 150px; object-fit: cover; }
+    .product-card button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+    .product-card button:hover { background-color: #218838; }
+    #cart-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); padding: 20px; }
+    #cart-content { background-color: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: 0 auto; overflow-y: auto; }
+    #cart-content h2 { text-align: center; }
+    #cart-popup ul { list-style: none; padding: 0; }
+    #cart-popup ul li { margin-bottom: 10px; }
+    #cart-popup button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    #cart-popup button:hover { background-color: #0056b3; }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="MY Elegant Scent Logo" class="logo">
-        <h1>MY Elegant Scents</h1>
-        <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">Follow us on Instagram</a>
-    </header>
-    <main>
-        <p> Welcome to My Elegant Scents </p>
-        
-        <div class="products">
-            <div class="product-card">
-                <img src="Perfume1.jpg" alt="Versace Eros">
-                <h3 class="product-name">Versace Eros</h3>
-                <p>Price: 300 EGP</p>
-                <button 
-                  class="snipcart-add-item"
-                  data-item-id="versace-eros"
-                  data-item-name="Versace Eros"
-                  data-item-price="300"
-                  data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                  data-item-description="عطر رجالي مميز">
-                  أضف إلى السلة
-                </button>
-            </div>
-            <div class="product-card">
-                <img src="Perfume2.jpg" alt="Spice Bomb">
-                <h3 class="product-name">Spice Bomb Extreme </h3>
-                <p>Price: 300 EGP</p>
-                <button 
-                  class="snipcart-add-item"
-                  data-item-id="spice-bomb"
-                  data-item-name="Spice Bomb Extreme"
-                  data-item-price="300"
-                  data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                  data-item-description="عطر رجالي حار وقوي">
-                  أضف إلى السلة
-                </button>
-            </div>
-            <div class="product-card">
-                <img src="Labelle.jpg" alt="La belle le parfum">
-                <h3 class="product-name">La belle le parfum</h3>
-                <p>Price: 300 EGP</p>
-                <button 
-                  class="snipcart-add-item"
-                  data-item-id="la-belle"
-                  data-item-name="La belle le parfum"
-                  data-item-price="300"
-                  data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                  data-item-description="عطر نسائي ساحر">
-                  أضف إلى السلة
-                </button>
-            </div>
-            <div class="product-card">
-                <img src="Le male.jpg" alt="Le male le parfum">
-                <h3 class="product-name">Le male le parfum</h3>
-                <p>Price: 300 EGP</p>
-                <button 
-                  class="snipcart-add-item"
-                  data-item-id="le-male"
-                  data-item-name="Le male le parfum"
-                  data-item-price="300"
-                  data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                  data-item-description="عطر رجالي جذاب">
-                  أضف إلى السلة
-                </button>
-            </div>
-            <div class="product-card">
-                <img src="SWY.jpg" alt="Stronger With You intensely">
-                <h3 class="product-name">Stronger With You intensely</h3>
-                <p>Price: 300 EGP</p>
-                <button 
-                  class="snipcart-add-item"
-                  data-item-id="stronger-with-you"
-                  data-item-name="Stronger With You intensely"
-                  data-item-price="300"
-                  data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                  data-item-description="عطر قوي ومثير">
-                  أضف إلى السلة
-                </button>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 MY Elegant Scent</p>
-    </footer>
 
-    <!-- Snipcart Scripts -->
-    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-    <div hidden id="snipcart" data-api-key="OWI0OTExM2MtNDNhOS00OTk4LWFlNjQtMDM0ZTVhNmI5MDIzNjM4ODI3NDUxMjk5NTk3NzMw"></div>
+  <h1>MY Elegant Scents</h1>
+  
+  <div class="product-card">
+    <img src="Perfume1.jpg" alt="Versace Eros">
+    <h3>Versace Eros</h3>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">أضف إلى السلة</button>
+  </div>
+  
+  <div class="product-card">
+    <img src="Perfume2.jpg" alt="Spice Bomb">
+    <h3>Spice Bomb Extreme</h3>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('Spice Bomb Extreme', 300, 'Perfume2.jpg')">أضف إلى السلة</button>
+  </div>
+
+  <div class="product-card">
+    <img src="Labelle.jpg" alt="La Belle le Parfum">
+    <h3>La Belle le Parfum</h3>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('La Belle le Parfum', 300, 'Labelle.jpg')">أضف إلى السلة</button>
+  </div>
+
+  <div id="cart-popup">
+    <div id="cart-content">
+      <h2>سلة التسوق</h2>
+      <ul id="cart-items"></ul>
+      <button onclick="goToWhatsApp()">إرسال للواتساب</button>
+      <button onclick="closeCart()">إغلاق</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(name, price, image) {
+      const product = { name, price, image };
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('تم إضافة المنتج إلى السلة!');
+    }
+
+    function openCart() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.name} - ${item.price} EGP`;
+        cartItems.appendChild(li);
+      });
+      document.getElementById('cart-popup').style.display = 'block';
+    }
+
+    function closeCart() {
+      document.getElementById('cart-popup').style.display = 'none';
+    }
+
+    function goToWhatsApp() {
+      let message = 'لقد اخترت هذه المنتجات: \n';
+      cart.forEach(item => {
+        message += `${item.name} - ${item.price} EGP\n`;
+      });
+      const whatsappLink = `https://wa.me/201212071567?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, '_blank');
+    }
+
+    // Open cart button (you can customize this)
+    const cartButton = document.createElement('button');
+    cartButton.innerHTML = 'عرض السلة';
+    cartButton.onclick = openCart;
+    document.body.appendChild(cartButton);
+  </script>
+
 </body>
 </html>
