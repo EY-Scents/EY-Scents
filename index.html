@@ -1,134 +1,137 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MY Elegant Scents</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* Basic Design */
-    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background: #f4f4f4; }
-    label, input, button { display: block; margin: 10px 0; }
-    .products { display: flex; flex-wrap: wrap; gap: 20px; }
-    .product-card { width: 200px; background-color: #fff; padding: 10px; text-align: center; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-    .product-card img { width: 100%; height: auto; border-radius: 8px; }
-    .product-card button { background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
-    .product-card button:hover { background-color: #45a049; }
-    
-    /* Cart Button Styling */
-    #cartButton {
-      background-color: #28a745; /* Green color */
-      color: white;
-      padding: 20px 40px; /* Bigger button size */
-      font-size: 18px; /* Larger text */
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-      text-align: center;
-      width: 100%; /* Full width */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      padding: 20px;
+      background: #f4f4f4;
     }
-    #cartButton:hover {
-      background-color: #218838; /* Darker green on hover */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product-card {
+      width: 200px;
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product-card button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .product-card button:hover {
+      background-color: #45a049;
+    }
+    .cart-button {
+      background-color: #FF9800;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 1000;
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <img src="logo.png" alt="MY Elegant Scents Logo" class="logo">
+<body>  <header>
+    <img src="logo.png" alt="MY Elegant Scent Logo">
     <h1>MY Elegant Scents</h1>
-    <a href="https://www.instagram.com/my_elegant_scents" target="_blank" class="instagram-link">تابعنا على إنستجرام</a>
-  </header>
-
-  <main>
-    <p>مرحباً بك في MY Elegant Scents</p>
-
+    <a href="https://www.instagram.com/my_elegant_scents" target="_blank">Follow us on Instagram</a>
+  </header>  <main>
+    <p>Welcome to My Elegant Scents</p>
     <div class="products">
       <div class="product-card">
         <img src="Perfume1.jpg" alt="Versace Eros">
         <h3 class="product-name">Versace Eros</h3>
-        <p>السعر: 300 EGP</p>
-        <button class="snipcart-add-item"
-                data-item-id="versace-eros"
-                data-item-name="Versace Eros"
-                data-item-price="300"
-                data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                data-item-description="عطر رجالي مميز">
-          أضف إلى السلة
-        </button>
-      </div>
+        <p>Description: Fresh, woody fragrance with mint and green apple</p>
+        <p>Price: 300 EGP</p>
+        <button onclick="addToCart('Versace Eros', 300)">Add to Cart</button>
+      </div><div class="product-card">
+    <img src="Perfume2.jpg" alt="Spice Bomb Extreme">
+    <h3 class="product-name">Spice Bomb Extreme</h3>
+    <p>Description: Warm spicy blend with tobacco and vanilla</p>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('Spice Bomb Extreme', 300)">Add to Cart</button>
+  </div>
 
-      <div class="product-card">
-        <img src="Perfume2.jpg" alt="Spice Bomb">
-        <h3 class="product-name">Spice Bomb Extreme</h3>
-        <p>السعر: 300 EGP</p>
-        <button class="snipcart-add-item"
-                data-item-id="spice-bomb"
-                data-item-name="Spice Bomb Extreme"
-                data-item-price="300"
-                data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                data-item-description="عطر رجالي حار وقوي">
-          أضف إلى السلة
-        </button>
-      </div>
+  <div class="product-card">
+    <img src="Labelle.jpg" alt="La belle le parfum">
+    <h3 class="product-name">La belle le parfum</h3>
+    <p>Description: Sweet, floral vanilla with a hint of pear</p>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('La belle le parfum', 300)">Add to Cart</button>
+  </div>
 
-      <div class="product-card">
-        <img src="Labelle.jpg" alt="La belle le parfum">
-        <h3 class="product-name">La belle le parfum</h3>
-        <p>السعر: 300 EGP</p>
-        <button class="snipcart-add-item"
-                data-item-id="la-belle"
-                data-item-name="La belle le parfum"
-                data-item-price="300"
-                data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                data-item-description="عطر نسائي ساحر">
-          أضف إلى السلة
-        </button>
-      </div>
+  <div class="product-card">
+    <img src="Le male.jpg" alt="Le male le parfum">
+    <h3 class="product-name">Le male le parfum</h3>
+    <p>Description: Intense oriental with lavender and vanilla</p>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('Le male le parfum', 300)">Add to Cart</button>
+  </div>
 
-      <div class="product-card">
-        <img src="Le male.jpg" alt="Le male le parfum">
-        <h3 class="product-name">Le male le parfum</h3>
-        <p>السعر: 300 EGP</p>
-        <button class="snipcart-add-item"
-                data-item-id="le-male"
-                data-item-name="Le male le parfum"
-                data-item-price="300"
-                data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                data-item-description="عطر رجالي جذاب">
-          أضف إلى السلة
-        </button>
-      </div>
+  <div class="product-card">
+    <img src="SWY.jpg" alt="Stronger With You intensely">
+    <h3 class="product-name">Stronger With You intensely</h3>
+    <p>Description: Warm, sweet notes with cinnamon and vanilla</p>
+    <p>Price: 300 EGP</p>
+    <button onclick="addToCart('Stronger With You intensely', 300)">Add to Cart</button>
+  </div>
+</div>
 
-      <div class="product-card">
-        <img src="SWY.jpg" alt="Stronger With You intensely">
-        <h3 class="product-name">Stronger With You intensely</h3>
-        <p>السعر: 300 EGP</p>
-        <button class="snipcart-add-item"
-                data-item-id="stronger-with-you"
-                data-item-name="Stronger With You intensely"
-                data-item-price="300"
-                data-item-url="https://myelegantscents.github.io/My-Elegant-Scents/"
-                data-item-description="عطر قوي ومثير">
-          أضف إلى السلة
-        </button>
-      </div>
-    </div>
-
-    <button id="cartButton" onclick="window.location.href='https://wa.me/201212071567?text=مرحبا، أود طلب هذه العطور: ' + encodeURIComponent(localStorage.getItem('cartItems'));">The Cart</button>
-  </main>
+  </main><button class="cart-button" onclick="goToWhatsApp()">The Cart</button>
 
   <footer>
-    <p>&copy; 2025 MY Elegant Scents</p>
-  </footer>
+    <p>&copy; 2025 MY Elegant Scent</p>
+  </footer>  <script>
+    let cart = [];
 
-  <!-- Snipcart Integration -->
-  <link rel="preconnect" href="https://app.snipcart.com">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_API_KEY"></div>
+    function addToCart(name, price) {
+      const product = { name, price };
+      cart.push(product);
+      alert(name + " has been added to your cart!");
+    }
 
-</body>
+    function goToWhatsApp() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      let cartDetails = "Order Details:%0A";
+      cart.forEach(product => {
+        cartDetails += `- ${product.name}: ${product.price} EGP%0A`;
+      });
+
+      const whatsappLink = `https://wa.me/201212071567?text=${cartDetails}`;
+
+      // Clear cart after sending
+      cart = [];
+
+      window.open(whatsappLink, "_blank");
+      alert("Your cart has been sent and cleared.");
+    }
+  </script></body>
 </html>
