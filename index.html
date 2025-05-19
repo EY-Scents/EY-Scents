@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EY Scents</title>
   <style>
     * {
@@ -27,11 +27,15 @@
       background: #fff;
       border-bottom: 1px solid #eee;
       padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
+      cursor: default;
     }
 
     nav ul {
@@ -120,14 +124,29 @@
       margin-top: auto;
     }
 
-    .cart {
+    /* Cart Styles */
+    .cart-toggle-btn {
       position: fixed;
       bottom: 20px;
+      right: 20px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .cart {
+      position: fixed;
+      bottom: 70px;
       right: 20px;
       background: #fff;
       border: 1px solid #eee;
       padding: 15px;
-      width: 300px;
+      width: 320px;
       max-height: 400px;
       overflow-y: auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -135,6 +154,7 @@
       font-size: 14px;
       display: none;
       flex-direction: column;
+      z-index: 999;
     }
 
     .cart h3 {
@@ -152,11 +172,23 @@
     .cart-item {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 8px;
+      gap: 8px;
     }
 
     .cart-item span {
       flex: 1;
+    }
+
+    .cart-item button {
+      background:none;
+      border:none;
+      color:red;
+      cursor:pointer;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1;
     }
 
     .cart-total {
@@ -174,6 +206,7 @@
       cursor: pointer;
       font-weight: bold;
       text-align: center;
+      width: 100%;
     }
 
     footer {
@@ -193,6 +226,11 @@
       border: 1px solid #eee;
       border-radius: 6px;
       background-color: #fafafa;
+    }
+
+    #add-perfume-form h3 {
+      margin-bottom: 15px;
+      text-align: center;
     }
 
     #add-perfume-form label {
@@ -243,12 +281,12 @@
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
       <h1 class="logo">EY Scents</h1>
       <nav>
         <ul>
           <li><a href="#products">Products</a></li>
-          <li><a href="https://www.instagram.com/my_elegant_scents" target="_blank">Instagram</a></li>
+          <li><a href="https://www.instagram.com/my_elegant_scents" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><a href="policy.html">Return & Exchange Policy</a></li>
         </ul>
       </nav>
@@ -267,21 +305,33 @@
     <div class="container">
       <h2>Our Collection</h2>
       <div class="product-grid" id="product-grid">
+        <!-- منتجات مبدئية -->
         <div class="product-card" data-name="Versace Eros" data-price="300">
           <img src="Perfume1.jpg" alt="Versace Eros" />
           <h3>Versace Eros</h3>
-          <p>Price: 400 EGP</p>
+          <p>Price: 300 EGP</p>
           <button class="add-to-cart-btn">Add to Cart</button>
         </div>
         <div class="product-card" data-name="Spicebomb Extreme" data-price="300">
           <img src="Perfume2.jpg" alt="Spicebomb Extreme" />
           <h3>Spicebomb Extreme</h3>
-          <p>Price: 400 EGP</p>
+          <p>Price: 300 EGP</p>
           <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- زر فتح الكارت -->
+  <button class="cart-toggle-btn" id="cart-toggle">Cart (0)</button>
+
+  <!-- الكارت -->
+  <div class="cart" id="cart">
+    <h3>Your Cart</h3>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: 0 EGP</div>
+    <button class="send-order-btn" id="send-order">Send Order on WhatsApp</button>
+  </div>
 
   <!-- قسم كلمة السر لإظهار الفورم -->
   <section id="password-section">
@@ -302,13 +352,6 @@
     <button id="add-perfume-btn">Add Perfume</button>
   </section>
 
-  <div class="cart" id="cart">
-    <h3>Your Cart</h3>
-    <div class="cart-items" id="cart-items"></div>
-    <div class="cart-total" id="cart-total">Total: 0 EGP</div>
-    <button class="send-order-btn" id="send-order">Send Order on WhatsApp</button>
-  </div>
-
   <footer>
     <div class="container">
       <p>&copy; 2025 EY Scents. All rights reserved.</p>
@@ -322,32 +365,22 @@
     const cartTotalElement = document.getElementById('cart-total');
     const sendOrderBtn = document.getElementById('send-order');
     const productGrid = document.getElementById('product-grid');
+    const cartToggleBtn = document.getElementById('cart-toggle');
 
-    // فتح وغلق الكارت
-    function toggleCart(show) {
-      cartElement.style.display = show ? 'flex' : 'none';
+    // تحديث عداد الكارت على الزر
+    function updateCartCount() {
+      const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+      cartToggleBtn.textContent = `Cart (${count})`;
     }
+
+    // فتح أو غلق الكارت
+    cartToggleBtn.addEventListener('click', () => {
+      if (cartElement.style.display === 'flex') {
+        cartElement.style.display = 'none';
+      } else {
+        cartElement.style.display = 'flex';
+      }
+    });
 
     // تحديث واجهة الكارت
-    function updateCartUI() {
-      cartItemsElement.innerHTML = '';
-      let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price * item.quantity;
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <span>${item.name} (x${item.quantity})</span>
-          <span>${item.price * item.quantity} EGP</span>
-          <button onclick="removeItem(${index})" style="background:none;border:none;color:red;cursor:pointer;">x</button>
-        `;
-        cartItemsElement.appendChild(div);
-      });
-      cartTotalElement.textContent = `Total: ${total} EGP`;
-    }
-
-    // إضافة منتج للكارت
-    function addItem(name, price) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity++;
+    function
