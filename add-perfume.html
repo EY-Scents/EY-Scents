@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EY Scents - Add Perfume</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fff; color: #111; padding: 20px; }
+    #addForm { display: none; max-width: 400px; margin: auto; }
+    label, input { display: block; width: 100%; margin-bottom: 10px; }
+    input[type="text"], input[type="number"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 10px; background: #000; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    #passwordSection { max-width: 400px; margin: auto; }
+    #passwordMessage { color: red; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div id="passwordSection">
+    <h2>ادخل كلمة السر لإضافة عطر</h2>
+    <input type="password" id="passwordInput" placeholder="كلمة السر" />
+    <button id="unlockBtn">دخول</button>
+    <div id="passwordMessage"></div>
+  </div>
+
+  <div id="addForm">
+    <h2>إضافة عطر جديد</h2>
+    <label>اسم العطر:</label>
+    <input type="text" id="perfumeName" placeholder="اكتب اسم العطر" />
+    <label>السعر (جنيه):</label>
+    <input type="number" id="perfumePrice" placeholder="اكتب السعر" />
+    <label>اسم صورة العطر (مثلاً perfume1.jpg):</label>
+    <input type="text" id="perfumeImage" placeholder="اسم ملف الصورة" />
+    <button id="addPerfumeBtn">أضف العطر</button>
+  </div>
+
+  <script>
+    const password = "eyscents123"; // غير الباسورد هنا لو عايز
+    const passwordSection = document.getElementById('passwordSection');
+    const passwordInput = document.getElementById('passwordInput');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const passwordMessage = document.getElementById('passwordMessage');
+    const addForm = document.getElementById('addForm');
+
+    unlockBtn.addEventListener('click', () => {
+      if(passwordInput.value === password) {
+        passwordSection.style.display = 'none';
+        addForm.style.display = 'block';
+        passwordMessage.textContent = '';
+      } else {
+        passwordMessage.textContent = 'كلمة السر غير صحيحة!';
+      }
+    });
+
+    document.getElementById('addPerfumeBtn').addEventListener('click', () => {
+      const name = document.getElementById('perfumeName').value.trim();
+      const price = document.getElementById('perfumePrice').value.trim();
+      const image = document.getElementById('perfumeImage').value.trim();
+
+      if(!name || !price || !image) {
+        alert('من فضلك اكمل كل الحقول');
+        return;
+      }
+
+      // نضيف العطر لموقعك بإرسال بياناته، هنا أنا هخزنها بالـ localStorage كمثال
+      // لازم تعدل حسب موقعك الحقيقي
+
+      let perfumes = JSON.parse(localStorage.getItem('perfumes') || '[]');
+      perfumes.push({name, price, image});
+      localStorage.setItem('perfumes', JSON.stringify(perfumes));
+
+      alert('تم إضافة العطر!');
+
+      // تنظيف الحقول
+      document.getElementById('perfumeName').value = '';
+      document.getElementById('perfumePrice').value = '';
+      document.getElementById('perfumeImage').value = '';
+    });
+  </script>
+</body>
+</html>
