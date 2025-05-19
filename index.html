@@ -184,32 +184,61 @@
       margin-top: 40px;
     }
 
-    /* زرار الفورم مخفيين في البداية */
-    #add-product-section, #add-product-form {
+    /* فورم إضافة العطر - مخفي افتراضياً */
+    #add-perfume-form {
       display: none;
-      text-align: center;
-      margin: 20px 0 40px 0;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      background-color: #fafafa;
     }
 
-    #add-product-form input {
-      margin: 5px;
+    #add-perfume-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    #add-perfume-form input {
+      width: 100%;
       padding: 8px;
-      width: 200px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
-    #add-product-form button {
+    #password-section {
+      max-width: 400px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    #password-section input {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    #password-section button {
+      padding: 10px 15px;
+      margin-left: 10px;
       background-color: #000;
       color: #fff;
       border: none;
-      padding: 10px 15px;
-      font-weight: bold;
-      cursor: pointer;
       border-radius: 4px;
-      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
+    #password-message {
+      margin-top: 10px;
+      color: red;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -234,23 +263,10 @@
     </div>
   </section>
 
-  <!-- زرار الدخول لإضافة عطر -->
-  <section id="add-product-section">
-    <button id="showAddProductBtn">Add New Perfume (Admin Only)</button>
-  </section>
-
-  <!-- الفورم لإضافة عطر جديد -->
-  <section id="add-product-form">
-    <input type="text" id="newProductName" placeholder="Perfume Name" />
-    <input type="text" id="newProductImage" placeholder="Image File Name (e.g., Perfume3.jpg)" />
-    <input type="number" id="newProductPrice" placeholder="Price (EGP)" />
-    <button id="addProductBtn">Add Perfume</button>
-  </section>
-
   <section id="products" class="products">
     <div class="container">
       <h2>Our Collection</h2>
-      <div class="product-grid">
+      <div class="product-grid" id="product-grid">
         <div class="product-card" data-name="Versace Eros" data-price="300">
           <img src="Perfume1.jpg" alt="Versace Eros" />
           <h3>Versace Eros</h3>
@@ -263,9 +279,27 @@
           <p>Price: 400 EGP</p>
           <button class="add-to-cart-btn">Add to Cart</button>
         </div>
-        <!-- Add more products here -->
       </div>
     </div>
+  </section>
+
+  <!-- قسم كلمة السر لإظهار الفورم -->
+  <section id="password-section">
+    <input type="password" id="admin-password" placeholder="Enter admin password" />
+    <button id="password-submit">Unlock Add Perfume Form</button>
+    <div id="password-message"></div>
+  </section>
+
+  <!-- فورم إضافة عطر جديد -->
+  <section id="add-perfume-form">
+    <h3>Add New Perfume</h3>
+    <label for="perfume-name">Perfume Name:</label>
+    <input type="text" id="perfume-name" placeholder="e.g. New Perfume" />
+    <label for="perfume-price">Price (EGP):</label>
+    <input type="number" id="perfume-price" placeholder="e.g. 350" />
+    <label for="perfume-img">Image Filename:</label>
+    <input type="text" id="perfume-img" placeholder="e.g. Perfume3.jpg" />
+    <button id="add-perfume-btn">Add Perfume</button>
   </section>
 
   <div class="cart" id="cart">
@@ -287,13 +321,33 @@
     const cartItemsElement = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
     const sendOrderBtn = document.getElementById('send-order');
+    const productGrid = document.getElementById('product-grid');
 
-    // فتح وإغلاق الكارت
+    // فتح وغلق الكارت
     function toggleCart(show) {
       cartElement.style.display = show ? 'flex' : 'none';
     }
 
+    // تحديث واجهة الكارت
     function updateCartUI() {
       cartItemsElement.innerHTML = '';
       let total = 0;
-      cart.forEach((item, index)
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <span>${item.name} (x${item.quantity})</span>
+          <span>${item.price * item.quantity} EGP</span>
+          <button onclick="removeItem(${index})" style="background:none;border:none;color:red;cursor:pointer;">x</button>
+        `;
+        cartItemsElement.appendChild(div);
+      });
+      cartTotalElement.textContent = `Total: ${total} EGP`;
+    }
+
+    // إضافة منتج للكارت
+    function addItem(name, price) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity++;
