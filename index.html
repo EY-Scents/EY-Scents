@@ -1,183 +1,165 @@
-<!DOCTYPE html><html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EY Scents</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Playfair Display', serif;
-        background-color: #111;
-        color: #fff;
-      }
-      header {
-        background-color: #000;
-        padding: 1rem;
-        text-align: center;
-      }
-      header img {
-        max-height: 80px;
-      }
-      .slogan {
-        margin-top: 1rem;
-        font-size: 1.2rem;
-        color: #ffd700;
-        font-weight: bold;
-      }
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem 0;
-        background-color: #1a1a1a;
-        flex-wrap: wrap;
-      }
-      nav a {
-        color: #ffd700;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      section {
-        padding: 2rem;
-        text-align: center;
-      }
-      h2 {
-        color: #ffd700;
-        margin-bottom: 1rem;
-      }
-      .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-      .product {
-        background-color: #222;
-        padding: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 0 10px #333;
-      }
-      .product img {
-        max-width: 100%;
-        border-radius: 8px;
-      }
-      .product button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-top: 10px;
-        font-size: 16px;
-      }
-      .product button:hover {
-        background-color: #45a049;
-      }
-      footer {
-        background-color: #000;
-        text-align: center;
-        padding: 1rem;
-        font-size: 0.9rem;
-      }
-      .btn {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        background-color: #ffd700;
-        color: #000;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .cart-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background-color: #FF5722;
-        color: white;
-        padding: 15px 25px;
-        border: none;
-        border-radius: 8px;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1000;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="logo.png" alt="EY Scents Logo" />
-      <div class="slogan">خلي الفقير ينضف و ريحته تبقي حلوه 😉</div>
-    </header>
-    <nav>
-      <a href="#about">About Us</a>
-      <a href="#products">Our Products</a>
-      <a href="#contact">Contact Us</a>
-      <a href="#return">Return Policy</a>
-      <a href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Instagram</a>
-    </nav><section id="about">
-  <h2>About Us</h2>
-  <p>At EY Scents, we offer the best quality perfumes at the most affordable prices!</p>
-</section>
-
-<section id="products">
-  <h2>Our Products</h2>
-  <div class="products">
-    <!-- Your product cards go here -->
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Contact us on Instagram for inquiries or orders:</p>
-  <a class="btn" href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Message Us on Instagram</a>
-</section>
-
-<section id="return">
-  <h2>Return & Exchange Policy</h2>
-  <p>We accept returns and exchanges within 14 days of purchase, provided the product is unused and in its original packaging.</p>
-  <p>To initiate a return or exchange, please contact us on Instagram.</p>
-</section>
-
-<footer>
-  <p>&copy; 2025 EY Scents. All Rights Reserved.</p>
-</footer>
-
-<button class="cart-button" onclick="showCart()">View Cart</button>
-
-<script>
-  let cart = [];
-
-  function addToCart(name, price, image) {
-    cart.push({ name, price, image });
-    alert(name + " added to cart!");
-  }
-
-  function showCart() {
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EY Scents - Spotlight Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
     }
 
-    let cartDetails = "Order Details:\n\n";
-    let totalPrice = 0;
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-    cart.forEach((item, index) => {
-      cartDetails += `${index + 1}. ${item.name} - ${item.price} EGP\n`;
-      totalPrice += item.price;
-    });
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
 
-    cartDetails += `\nTotal Price: ${totalPrice} EGP`;
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-    const whatsappNumber = "01212071567";
-    const whatsappLink = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(cartDetails)}`;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-    window.open(whatsappLink, '_blank');
-    cart = [];
-  }
-</script>
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
 
-  </body>
+    .hero {
+      background-color: #f7f7f7;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .products {
+      padding: 60px 0;
+    }
+
+    .products h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 20px;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">EY Scents</h1>
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="https://www.instagram.com/my_elegant_scents" target="_blank">Instagram</a></li>
+          <li><a href="policy.html">Return & Exchange Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Discover Your Signature Scent</h2>
+      <p>Premium mirror perfumes at affordable prices.</p>
+      <a href="#products" class="cta">Shop Now</a>
+    </div>
+  </section>
+
+  <section id="products" class="products">
+    <div class="container">
+      <h2>Our Collection</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/eros.jpg" alt="Versace Eros" />
+          <h3>Versace Eros</h3>
+          <p>Price: 300 EGP</p>
+        </div>
+        <div class="product-card">
+          <img src="images/spicebomb.jpg" alt="Spicebomb Extreme" />
+          <h3>Spicebomb Extreme</h3>
+          <p>Price: 300 EGP</p>
+        </div>
+        <!-- Add more products here -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 EY Scents. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>
