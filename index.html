@@ -1,247 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MY Elegant Scent</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background-color: #111;
-      color: #fff;
-    }
-    header {
-      background-color: #000;
-      padding: 1rem;
-      text-align: center;
-    }
-    header img {
-      max-height: 80px;
-    }
-    .slogan {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #ffd700;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      background-color: #1a1a1a;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #ffd700;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    section {
-      padding: 2rem;
-      text-align: center;
-    }
-    h2 {
-      color: #ffd700;
-      margin-bottom: 1rem;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .product {
-      background-color: #222;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #333;
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #ffd700;
-      color: #000;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .cart-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #FF5722;
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    .product button {
-      background-color: #4CAF50; /* Green */
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    .product button:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="logo.png" alt="MY Elegant Scent Logo" />
-    <div class="slogan">خلي الفقير ينضف و ريحته تبقي حلوه 😉</div>
-  </header>
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="#products">Our Products</a>
-    <a href="#contact">Contact Us</a>
-    <a href="return-policy.html">Return Policy</a>
-    <a href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Instagram</a>
-  </nav>
-  <section id="about">
-    <h2>About Us</h2>
-    <p>At My Elegant Scents, we offer the best quality perfumes at the most affordable prices!</p>
-  </section>
-  <section id="products">
-    <h2>Our Products</h2>
-    <div class="products">
-
-<div class="product">
-  <img src="Perfume1.jpg" alt="Versace Eros">
-  <h3>Versace Eros</h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Mint Green Apple Lemon
-Heart (Middle) Notes: Tonka Bean Geranium Ambroxan
-
-    Base Notes: Vanilla Vetiver Oakmoss Cedar (Atlas and Virginia) Musk
-
-</p>
-  <button onclick="addToCart('Versace Eros', 300, 'Perfume1.jpg')">Add to Cart</button>
-</div>
-      <div class="product">
-  <img src="Perfume2.jpg" alt="Spice bomb extreme ">
-  <h3>Spice bomb extreme </h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Grapefruit Bergamot Pink Pepper Cinnamon
-Heart (Middle) Notes: Lavender Chili Pepper Paprika
-Base Notes: Tobacco Leather Tonka Bean Vanilla Amber Woody Notes</p>
-  <button onclick="addToCart('Spice bomb extreme ', 300, 'Perfume2.jpg')">Add to Cart</button>
-      <div class="product">
-  <img src="Labelle.jpg" alt="La belle le parfum ">
-  <h3>La belle le parfum </h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Pear Bergamot
-Heart (Middle) Notes: Jasmine Vanilla
-Base Notes: Amberwood Tonka Bean Musk Patchouli</p>
-  <button onclick="addToCart('La belle le parfum ', 300, 'La belle.jpg')">Add to Cart</button>
-      </div>
-      <div class="product">
-  <img src="Le male.jpg" alt="Le male le parfum ">
-  <h3>Le male le parfum </h3>
-  <p>Price: 600 EGP</p>
-  <p class="desc">Top Notes: Bergamot Grapefruit Pink Pepper Cinnamon Saffron
-Heart (Middle) Notes: Lavender Cinnamon Paprika Chili Pepper
-Base Notes: Tobacco Leather Vetiver Benzoin Patchouli
-</p>
-  <button onclick="addToCart('Le male le parfum ', 600, 'Le male.jpg')">Add to Cart</button>
-      </div>
-<div class="product">
-  <img src="SWY.jpg" alt="Stronger with you intensely ">
-  <h3>Stronger with you intensely </h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Pink Pepper, Mint, Green Apple
-Heart (Middle) Notes: Lavender, Sage, Cinnamon, Amber
-Base Notes: Vanilla, Tonka Bean, Leather, Cashmeran, Cedar, Patchouli</p>
-  <button onclick="addToCart('Stronger with you intensely ', 300, 'SWY.jpg')">Add to Cart</button>
-</div>
-<div class="product">
-  <img src="Lemale2.jpg" alt="Le male le parfum ">
-  <h3>Le male le parfum #2 </h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">نفس le male le parfum بس الديزاين مختلف </p>
-  <button onclick="addToCart('Le male le parfum #2', 300, 'Lemale2.jpg')">Add to Cart</button>
-</div>
-<div class="product">
-  <img src="TFTV.jpg" alt="TomFord Tobacco Vanilla">
-  <h3>TomFord Tobacco Vanilla</h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Tobacco Leaf, Spicy Notes
-Heart (Middle) Notes: Vanilla, Cacao, Tonka Bean, Tobacco Blossom
-Base Notes: Dried Fruits, Woody Notes</p>
-  <button onclick="addToCart('TomFord Tobacco Vanilla', 300, 'TFTV.jpg')">Add to Cart</button>
-</div>
-<div class="product">
-  <img src="Azzaro Wanted.jpg" alt="Azzaro Wanted">
-  <h3>Azzaro Wanted</h3>
-  <p>Price: 300 EGP</p>
-  <p class="desc">Top Notes: Lemon, Ginger, Lavender, Mint
-Heart (Middle) Notes: Cardamom, Juniper, Apple, Geranium
-Base Notes: Tonka Bean, Amberwood, Haitian Vetiver</p>
-  <button onclick="addToCart('Azzaro Wanted', 300, 'Azzaro Wanted.jpg')">Add to Cart</button>
-</div>
-    </div>
-  </section>
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Contact us on Instagram for inquiries or orders:</p>
-    <a class="btn" href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Message Us on Instagram</a>
-  </section>
-  <footer>
-    <p>&copy; 2025 MY Elegant Scent. All Rights Reserved.</p>
-  </footer>
-  <button class="cart-button" onclick="showCart()">View Cart</button>
-
-  <script>
-    let cart = [];
-
-    function addToCart(name, price, image) {
-      cart.push({ name, price, image });
-      alert(name + " added to cart!");
-    }
-
-    function showCart() {
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EY Scents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Playfair Display', serif;
+        background-color: #111;
+        color: #fff;
       }
+      header {
+        background-color: #000;
+        padding: 1rem;
+        text-align: center;
+      }
+      header img {
+        max-height: 80px;
+      }
+      .slogan {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: #ffd700;
+        font-weight: bold;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem 0;
+        background-color: #1a1a1a;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: #ffd700;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        padding: 2rem;
+        text-align: center;
+      }
+      h2 {
+        color: #ffd700;
+        margin-bottom: 1rem;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .product {
+        background-color: #222;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px #333;
+      }
+      .product img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+      .product button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      .product button:hover {
+        background-color: #45a049;
+      }
+      footer {
+        background-color: #000;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #ffd700;
+        color: #000;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .cart-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #FF5722;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="EY Scents Logo" />
+      <div class="slogan">خلي الفقير ينضف و ريحته تبقي حلوه 😉</div>
+    </header>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#products">Our Products</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#return">Return Policy</a>
+      <a href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Instagram</a>
+    </nav><section id="about">
+  <h2>About Us</h2>
+  <p>At EY Scents, we offer the best quality perfumes at the most affordable prices!</p>
+</section>
 
-      let cartDetails = "Order Details:\n\n";
-      let totalPrice = 0;
+<section id="products">
+  <h2>Our Products</h2>
+  <div class="products">
+    <!-- Your product cards go here -->
+  </div>
+</section>
 
-      cart.forEach((item, index) => {
-        cartDetails += `${index + 1}. ${item.name} - ${item.price} EGP\n`;
-        totalPrice += item.price;
-      });
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Contact us on Instagram for inquiries or orders:</p>
+  <a class="btn" href="https://www.instagram.com/my_elegant_scents?igsh=bGZqaGVqMHZieG9m" target="_blank">Message Us on Instagram</a>
+</section>
 
-      cartDetails += `\nTotal Price: ${totalPrice} EGP`;
+<section id="return">
+  <h2>Return & Exchange Policy</h2>
+  <p>We accept returns and exchanges within 14 days of purchase, provided the product is unused and in its original packaging.</p>
+  <p>To initiate a return or exchange, please contact us on Instagram.</p>
+</section>
 
-      const whatsappNumber = "01212071567";
-      const whatsappLink = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(cartDetails)}`;
+<footer>
+  <p>&copy; 2025 EY Scents. All Rights Reserved.</p>
+</footer>
 
-      window.open(whatsappLink, '_blank');
-      cart = [];
+<button class="cart-button" onclick="showCart()">View Cart</button>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price, image) {
+    cart.push({ name, price, image });
+    alert(name + " added to cart!");
+  }
+
+  function showCart() {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
     }
-  </script>
-</body>
+
+    let cartDetails = "Order Details:\n\n";
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+      cartDetails += `${index + 1}. ${item.name} - ${item.price} EGP\n`;
+      totalPrice += item.price;
+    });
+
+    cartDetails += `\nTotal Price: ${totalPrice} EGP`;
+
+    const whatsappNumber = "01212071567";
+    const whatsappLink = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(cartDetails)}`;
+
+    window.open(whatsappLink, '_blank');
+    cart = [];
+  }
+</script>
+
+  </body>
 </html>
