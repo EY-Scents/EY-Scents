@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EY Scents</title>
   <style>
     * {
@@ -15,372 +14,295 @@
       background-color: #fff;
       color: #111;
       line-height: 1.6;
-    }
+    }.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
+header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
 
-    header {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      cursor: default;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
+.hero {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+  text-align: center;
+}
 
-    .hero {
-      background-color: #f7f7f7;
-      padding: 60px 0;
-      text-align: center;
-    }
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
 
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+.cta {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
 
-    .cta {
-      background-color: #000;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-    }
+.products {
+  padding: 60px 0;
+}
 
-    .products {
-      padding: 60px 0;
-    }
+.products h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+}
 
-    .products h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-    }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .product-card {
-      border: 1px solid #eee;
-      border-radius: 6px;
-      padding: 20px;
-      text-align: center;
-      transition: box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.product-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .product-card:hover {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
 
-    .product-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
+.add-to-cart-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: auto;
+}
 
-    .add-to-cart-btn {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 4px;
-      margin-top: auto;
-    }
+.cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  font-size: 14px;
+  display: none;
+  flex-direction: column;
+}
 
-    /* Cart Styles */
-    .cart-toggle-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 15px 20px;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      z-index: 1000;
-    }
+.cart h3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
 
-    .cart {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      background: #fff;
-      border: 1px solid #eee;
-      padding: 15px;
-      width: 320px;
-      max-height: 400px;
-      overflow-y: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 6px;
-      font-size: 14px;
-      display: none;
-      flex-direction: column;
-      z-index: 999;
-    }
+.cart-items {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
 
-    .cart h3 {
-      margin-bottom: 10px;
-      font-weight: bold;
-      text-align: center;
-    }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
 
-    .cart-items {
-      flex-grow: 1;
-      overflow-y: auto;
-      margin-bottom: 10px;
-    }
+.cart-item span {
+  flex: 1;
+}
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      gap: 8px;
-    }
+.cart-total {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: right;
+}
 
-    .cart-item span {
-      flex: 1;
-    }
+.send-order-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
 
-    .cart-item button {
-      background:none;
-      border:none;
-      color:red;
-      cursor:pointer;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 1;
-    }
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
 
-    .cart-total {
-      font-weight: bold;
-      margin-bottom: 10px;
-      text-align: right;
-    }
-
-    .send-order-btn {
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-    }
-
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-
-    /* فورم إضافة العطر - مخفي افتراضياً */
-    #add-perfume-form {
-      display: none;
-      max-width: 400px;
-      margin: 30px auto;
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 6px;
-      background-color: #fafafa;
-    }
-
-    #add-perfume-form h3 {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    #add-perfume-form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    #add-perfume-form input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    #password-section {
-      max-width: 400px;
-      margin: 30px auto;
-      text-align: center;
-    }
-
-    #password-section input {
-      padding: 10px;
-      width: 70%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-
-    #password-section button {
-      padding: 10px 15px;
-      margin-left: 10px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #password-message {
-      margin-top: 10px;
-      color: red;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="container">
       <h1 class="logo">EY Scents</h1>
       <nav>
         <ul>
           <li><a href="#products">Products</a></li>
-          <li><a href="https://www.instagram.com/my_elegant_scents" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.instagram.com/my_elegant_scents" target="_blank">Instagram</a></li>
           <li><a href="policy.html">Return & Exchange Policy</a></li>
         </ul>
       </nav>
     </div>
-  </header>
-
-  <section class="hero">
+  </header>  <section class="hero">
     <div class="container">
       <h2>Discover Your Signature Scent</h2>
       <p>Premium mirror perfumes at affordable prices.</p>
       <a href="#products" class="cta">Shop Now</a>
     </div>
-  </section>
-
-  <section id="products" class="products">
+  </section>  <section id="products" class="products">
     <div class="container">
       <h2>Our Collection</h2>
-      <div class="product-grid" id="product-grid">
-        <!-- منتجات مبدئية -->
+      <div class="product-grid">
         <div class="product-card" data-name="Versace Eros" data-price="300">
           <img src="Perfume1.jpg" alt="Versace Eros" />
           <h3>Versace Eros</h3>
-          <p>Price: 300 EGP</p>
+          <p>Price: 400 EGP</p>
           <button class="add-to-cart-btn">Add to Cart</button>
         </div>
         <div class="product-card" data-name="Spicebomb Extreme" data-price="300">
           <img src="Perfume2.jpg" alt="Spicebomb Extreme" />
           <h3>Spicebomb Extreme</h3>
-          <p>Price: 300 EGP</p>
+          <p>Price: 400 EGP</p>
           <button class="add-to-cart-btn">Add to Cart</button>
         </div>
+        <!-- Add more products here -->
       </div>
     </div>
-  </section>
-
-  <!-- زر فتح الكارت -->
-  <button class="cart-toggle-btn" id="cart-toggle">Cart (0)</button>
-
-  <!-- الكارت -->
-  <div class="cart" id="cart">
+  </section>  <div class="cart" id="cart">
     <h3>Your Cart</h3>
     <div class="cart-items" id="cart-items"></div>
     <div class="cart-total" id="cart-total">Total: 0 EGP</div>
     <button class="send-order-btn" id="send-order">Send Order on WhatsApp</button>
-  </div>
-
-  <!-- قسم كلمة السر لإظهار الفورم -->
-  <section id="password-section">
-    <input type="password" id="admin-password" placeholder="Enter admin password" />
-    <button id="password-submit">Unlock Add Perfume Form</button>
-    <div id="password-message"></div>
-  </section>
-
-  <!-- فورم إضافة عطر جديد -->
-  <section id="add-perfume-form">
-    <h3>Add New Perfume</h3>
-    <label for="perfume-name">Perfume Name:</label>
-    <input type="text" id="perfume-name" placeholder="e.g. New Perfume" />
-    <label for="perfume-price">Price (EGP):</label>
-    <input type="number" id="perfume-price" placeholder="e.g. 350" />
-    <label for="perfume-img">Image Filename:</label>
-    <input type="text" id="perfume-img" placeholder="e.g. Perfume3.jpg" />
-    <button id="add-perfume-btn">Add Perfume</button>
-  </section>
-
-  <footer>
+  </div>  <footer>
     <div class="container">
       <p>&copy; 2025 EY Scents. All rights reserved.</p>
     </div>
-  </footer>
-
-  <script>
+  </footer>  <script>
     const cart = [];
     const cartElement = document.getElementById('cart');
     const cartItemsElement = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
     const sendOrderBtn = document.getElementById('send-order');
-    const productGrid = document.getElementById('product-grid');
-    const cartToggleBtn = document.getElementById('cart-toggle');
 
-    // تحديث عداد الكارت على الزر
-    function updateCartCount() {
-      const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-      cartToggleBtn.textContent = `Cart (${count})`;
+    // افتح الكارت لما تضيف أول منتج
+    function toggleCart(show) {
+      cartElement.style.display = show ? 'flex' : 'none';
     }
 
-    // فتح أو غلق الكارت
-    cartToggleBtn.addEventListener('click', () => {
-      if (cartElement.style.display === 'flex') {
-        cartElement.style.display = 'none';
+    function updateCartUI() {
+      cartItemsElement.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <span>${item.name} (x${item.quantity})</span>
+          <span>${item.price * item.quantity} EGP</span>
+          <button onclick="removeItem(${index})" style="background:none;border:none;color:red;cursor:pointer;">x</button>
+        `;
+        cartItemsElement.appendChild(div);
+      });
+      cartTotalElement.textContent = `Total: ${total} EGP`;
+    }
+
+    function addItem(name, price) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity++;
       } else {
-        cartElement.style.display = 'flex';
+        cart.push({name, price, quantity: 1});
       }
+      updateCartUI();
+      toggleCart(true);
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      if (cart.length === 0) {
+        toggleCart(false);
+      } else {
+        updateCartUI();
+      }
+    }
+
+    // أزرار Add to Cart
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const name = productCard.dataset.name;
+        const price = parseInt(productCard.dataset.price, 10);
+        addItem(name, price);
+      });
     });
 
-    // تحديث واجهة الكارت
-    function
+    sendOrderBtn.addEventListener('click', () => {
+      if(cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      const phoneNumber = '+2001212071567'; // رقم الواتساب الخاص بيك يا بوص
+      let message = 'Hello, I want to order the following perfumes:%0A';
+      let total = 0;
+      cart.forEach(item => {
+        message += `- ${item.name} (x${item.quantity}): ${item.price * item.quantity} EGP%0A`;
+        total += item.price * item.quantity;
+      });
+      message += `%0ATotal: ${total} EGP`;
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(url, '_blank');
+    });
+  </script></body>
+</html>
