@@ -183,6 +183,33 @@
       padding: 20px 0;
       margin-top: 40px;
     }
+
+    /* زرار الفورم مخفيين في البداية */
+    #add-product-section, #add-product-form {
+      display: none;
+      text-align: center;
+      margin: 20px 0 40px 0;
+    }
+
+    #add-product-form input {
+      margin: 5px;
+      padding: 8px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #add-product-form button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -205,6 +232,19 @@
       <p>Premium mirror perfumes at affordable prices.</p>
       <a href="#products" class="cta">Shop Now</a>
     </div>
+  </section>
+
+  <!-- زرار الدخول لإضافة عطر -->
+  <section id="add-product-section">
+    <button id="showAddProductBtn">Add New Perfume (Admin Only)</button>
+  </section>
+
+  <!-- الفورم لإضافة عطر جديد -->
+  <section id="add-product-form">
+    <input type="text" id="newProductName" placeholder="Perfume Name" />
+    <input type="text" id="newProductImage" placeholder="Image File Name (e.g., Perfume3.jpg)" />
+    <input type="number" id="newProductPrice" placeholder="Price (EGP)" />
+    <button id="addProductBtn">Add Perfume</button>
   </section>
 
   <section id="products" class="products">
@@ -248,7 +288,7 @@
     const cartTotalElement = document.getElementById('cart-total');
     const sendOrderBtn = document.getElementById('send-order');
 
-    // افتح الكارت لما تضيف أول منتج
+    // فتح وإغلاق الكارت
     function toggleCart(show) {
       cartElement.style.display = show ? 'flex' : 'none';
     }
@@ -256,66 +296,4 @@
     function updateCartUI() {
       cartItemsElement.innerHTML = '';
       let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price * item.quantity;
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <span>${item.name} (x${item.quantity})</span>
-          <span>${item.price * item.quantity} EGP</span>
-          <button onclick="removeItem(${index})" style="background:none;border:none;color:red;cursor:pointer;">x</button>
-        `;
-        cartItemsElement.appendChild(div);
-      });
-      cartTotalElement.textContent = `Total: ${total} EGP`;
-    }
-
-    function addItem(name, price) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push({name, price, quantity: 1});
-      }
-      updateCartUI();
-      toggleCart(true);
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      if (cart.length === 0) {
-        toggleCart(false);
-      } else {
-        updateCartUI();
-      }
-    }
-
-    // أزرار Add to Cart
-    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const productCard = button.closest('.product-card');
-        const name = productCard.dataset.name;
-        const price = parseInt(productCard.dataset.price, 10);
-        addItem(name, price);
-      });
-    });
-
-    sendOrderBtn.addEventListener('click', () => {
-      if(cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
-      const phoneNumber = '+2001212071567'; // رقم الواتساب الخاص بيك يا بوص
-      let message = 'Hello, I want to order the following perfumes:%0A';
-      let total = 0;
-      cart.forEach(item => {
-        message += `- ${item.name} (x${item.quantity}): ${item.price * item.quantity} EGP%0A`;
-        total += item.price * item.quantity;
-      });
-      message += `%0ATotal: ${total} EGP`;
-      const url = `https://wa.me/${phoneNumber}?text=${message}`;
-      window.open(url, '_blank');
-    });
-  </script>
-</body>
-</html>
+      cart.forEach((item, index)
