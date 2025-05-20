@@ -70,6 +70,22 @@
       border-radius: 4px;
     }
 
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .category-buttons a {
+      padding: 15px 30px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
     .products {
       padding: 60px 0;
     }
@@ -182,7 +198,6 @@
       padding: 20px 0;
       margin-top: 40px;
     }
-
   </style>
 </head>
 <body>
@@ -203,89 +218,123 @@
     <div class="container">
       <h2>Discover Your Signature Scent</h2>
       <p>Premium mirror perfumes at affordable prices.</p>
-      <a href="#products" class="cta">Shop Now</a>
     </div>
   </section>
 
-  <section id="products" class="products">
+  <section class="category-buttons">
+    <a href="#master-box">Master Box</a>
+    <a href="#tester-box">Tester Box</a>
+    <a href="#travel-size">Travel Size</a>
+  </section>
+
+  <section id="master-box" class="products">
     <div class="container">
-      <h2>Our Collection</h2>
+      <h2>Master Box Collection</h2>
       <div class="product-grid">
-        <div class="product-card" data-name="Versace Eros" data-price="400">
-          <img src="Perfume1.jpg" alt="Versace Eros" />
-          <h3>Versace Eros</h3>
-          <p>Price: 400 EGP</p>
-          <button class="add-to-cart-btn">Add to Cart</button>
+        <!-- Existing Product Cards Here -->
+      <div class="product-card" data-name="Versace Eros" data-price="400">
+    <img src="Perfume1.jpg" alt="Versace Eros" />
+    <h3>Versace Eros</h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Spicebomb Extreme" data-price="425">
+    <img src="Perfume2.jpg" alt="Spicebomb Extreme" />
+    <h3>Spicebomb Extreme</h3>
+    <p>Price: 425 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Stronger with you intensely " data-price="400">
+    <img src="SWY.jpg" alt="Stronger with you intensely " />
+    <h3>Stronger with you intensely </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="TomFord Tobacco Vanille" data-price="425">
+    <img src="TFTV.jpg" alt="TomFord Tobacco Vanille" />
+    <h3>TomFord Tobacco Vanille</h3>
+    <p>Price: 425 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Le male le parfum " data-price="400">
+    <img src="Le male.jpg" alt="Le male le parfum " />
+    <h3>Le male le parfum </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Le beau le parfum " data-price="400">
+    <img src="Le beau.jpg" alt="Le beau le parfum " />
+    <h3>Le beau le parfum </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Valentino Uomo Intense " data-price="400">
+    <img src="ValentinoUomo.jpg" alt="Valentino Uomo Intense " />
+    <h3>Valentino Uomo Intense </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Burberry her intense " data-price="400">
+    <img src="Burberry her.jpg" alt="Burberry her " />
+    <h3>Burberry her intense </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Libre " data-price="400">
+    <img src="Libre.jpg" alt="Libre " />
+    <h3>Libre </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Good girl black " data-price="400">
+    <img src="Good girlb.jpg" alt="Good girl black " />
+    <h3>Good girl black </h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="Very good girl Red" data-price="400">
+    <img src="Very goodgirlr.jpg" alt="Very good girl Red" />
+    <h3>Very good girl Red</h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-name="JPG Divine" data-price="400">
+    <img src="Divine.jpg" alt="JPG Divine" />
+    <h3>JPG Divine</h3>
+    <p>Price: 400 EGP</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+</div>
         </div>
-        <div class="product-card" data-name="Spicebomb Extreme" data-price="425">
-          <img src="Perfume2.jpg" alt="Spicebomb Extreme" />
-          <h3>Spicebomb Extreme</h3>
-          <p>Price: 425 EGP</p>
-          <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-        <!-- Add more products here -->
-        <div class="product-card" data-name="Stronger with you intensely " data-price="400">
-  <img src="SWY.jpg" alt="Stronger with you intensely " />
-  <h3>Stronger with you intensely </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-        <div class="product-card" data-name="TomFord Tobacco Vanille" data-price="425">
-  <img src="TFTV.jpg" alt="TomFord Tobacco Vanille" />
-  <h3>TomFord Tobacco Vanille</h3>
-  <p>Price: 425 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-        <div class="product-card" data-name="Le male le parfum " data-price="400">
-  <img src="Le male.jpg" alt="Le male le parfum " />
-  <h3>Le male le parfum </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-        <div class="product-card" data-name="Le beau le parfum " data-price="400">
-  <img src="Le beau.jpg" alt="Le beau le parfum " />
-  <h3>Le beau le parfum </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-        <div class="product-card" data-name="Valentino Uomo Intense " data-price="400">
-  <img src="ValentinoUomo.jpg" alt="Valentino Uomo Intense " />
-  <h3>Valentino Uomo Intense </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
+    </div>
+  </section>
+
+  <section id="tester-box" class="products">
+    <div class="container">
+      <h2>Tester Box</h2>
+      <div class="product-grid">
+        <!-- Add tester perfumes here -->
       </div>
-      <div class="product-card" data-name="Burberry her intense " data-price="400">
-  <img src="Burberry her.jpg" alt="Burberry her " />
-  <h3>Burberry her intense </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+  </section>
+
+  <section id="travel-size" class="products">
+    <div class="container">
+      <h2>Travel Size</h2>
+      <div class="product-grid">
+        <!-- Add travel size perfumes here -->
       </div>
-      <div class="product-card" data-name="Libre " data-price="400">
-  <img src="Libre.jpg" alt="Libre " />
-  <h3>Libre </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-      <div class="product-card" data-name="Good girl black " data-price="400">
-  <img src="Good girlb.jpg" alt="Good girl black " />
-  <h3>Good girl black </h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-      <div class="product-card" data-name="Very good girl Red" data-price="400">
-  <img src="Very goodgirlr.jpg" alt="Very good girl Red" />
-  <h3>Very good girl Red</h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-      <div class="product-card" data-name="JPG Divine" data-price="400">
-  <img src="Divine.jpg" alt="JPG Divine" />
-  <h3>JPG Divine</h3>
-  <p>Price: 400 EGP</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-      
     </div>
   </section>
 
@@ -297,91 +346,7 @@
   </div>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 EY Scents. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 EY Scents. All rights reserved.</p>
   </footer>
-
-  <script>
-    const cart = [];
-    const cartElement = document.getElementById('cart');
-    const cartItemsElement = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-    const sendOrderBtn = document.getElementById('send-order');
-
-    // افتح الكارت لما تضيف أول منتج
-    function toggleCart(show) {
-      cartElement.style.display = show ? 'flex' : 'none';
-    }
-
-    function updateCartUI() {
-      cartItemsElement.innerHTML = '';
-      let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price * item.quantity;
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <span>${item.name} (x${item.quantity})</span>
-          <span>${item.price * item.quantity} EGP</span>
-          <button onclick="removeItem(${index})" style="background:none;border:none;color:red;cursor:pointer;">x</button>
-        `;
-        cartItemsElement.appendChild(div);
-      });
-      cartTotalElement.textContent = `Total: ${total} EGP`;
-    }
-
-    function addItem(name, price) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push({name, price, quantity: 1});
-      }
-      updateCartUI();
-      toggleCart(true);
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      if (cart.length === 0) {
-        toggleCart(false);
-      } else {
-        updateCartUI();
-      }
-    }
-
-    // أزرار Add to Cart
-    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const productCard = button.closest('.product-card');
-        const name = productCard.dataset.name;
-        const price = parseInt(productCard.dataset.price, 10);
-        addItem(name, price);
-      });
-    });
-
-    sendOrderBtn.addEventListener('click', () => {
-      if(cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
-      const phoneNumber = '+2001212071567'; // رقم الواتساب الخاص بيك يا بوص
-      let message = 'Hello, I want to order the following perfumes:%0A';
-      let total = 0;
-      cart.forEach(item => {
-        message += `- ${item.name} (x${item.quantity}): ${item.price * item.quantity} EGP%0A`;
-        total += item.price * item.quantity;
-      });
-      message += `%0ATotal: ${total} EGP`;
-      const url = `https://wa.me/${phoneNumber}?text=${message}`;
-      window.open(url, '_blank');
-
-      // بعد ما تفتح الواتساب نفضي الكارت
-      cart.length = 0;
-      updateCartUI();
-      toggleCart(false);
-    });
-  </script>
 </body>
 </html>
